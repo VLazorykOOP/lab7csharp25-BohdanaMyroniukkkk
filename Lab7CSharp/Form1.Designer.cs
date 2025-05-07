@@ -1,17 +1,17 @@
-﻿
+﻿using System.Windows.Forms;
+
 namespace Lab7CSharp
 {
     partial class Form1
     {
-        /// <summary>
-        /// Обязательная переменная конструктора.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Освободить все используемые ресурсы.
-        /// </summary>
-        /// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        private PictureBox pictureBox;
+        private TextBox memo;
+        private Button startButton;
+        private Button stopButton;
+        private Timer timer;
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,48 +21,70 @@ namespace Lab7CSharp
             base.Dispose(disposing);
         }
 
-        #region Код, автоматически созданный конструктором форм Windows
-
-        /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
+            this.pictureBox = new PictureBox();
+            this.memo = new TextBox();
+            this.startButton = new Button();
+            this.stopButton = new Button();
+            this.timer = new Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.PaleGreen;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label1.Location = new System.Drawing.Point(376, -1);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Lab 7.   C# ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
+
+            // pictureBox
+            this.pictureBox.Location = new System.Drawing.Point(170, 10);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(400, 300);
+            this.pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.pictureBox.BorderStyle = BorderStyle.FixedSingle;
+            this.pictureBox.TabIndex = 0;
+            this.pictureBox.TabStop = false;
+
+            // memo
+            this.memo.Location = new System.Drawing.Point(10, 10);
+            this.memo.Multiline = true;
+            this.memo.Name = "memo";
+            this.memo.ScrollBars = ScrollBars.Vertical;
+            this.memo.Size = new System.Drawing.Size(150, 100);
+            this.memo.TabIndex = 1;
+
+            // startButton
+            this.startButton.Location = new System.Drawing.Point(10, 120);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(70, 30);
+            this.startButton.TabIndex = 2;
+            this.startButton.Text = "Старт";
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
+
+            // stopButton
+            this.stopButton.Location = new System.Drawing.Point(90, 120);
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(70, 30);
+            this.stopButton.TabIndex = 3;
+            this.stopButton.Text = "Стоп";
+            this.stopButton.UseVisualStyleBackColor = true;
+            this.stopButton.Enabled = false;
+            this.stopButton.Click += new System.EventHandler(this.stopButton_Click);
+
+            // timer
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+
             // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 386);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(600, 400);
+            this.Controls.Add(this.stopButton);
+            this.Controls.Add(this.startButton);
+            this.Controls.Add(this.memo);
+            this.Controls.Add(this.pictureBox);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Циклічне виведення метафайлів";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
-
-        #endregion
-
-        private System.Windows.Forms.Label label1;
     }
 }
-
